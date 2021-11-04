@@ -1,0 +1,31 @@
+{
+  "name": "heroku-01",
+  "version": "1.0.0",
+  "description": "Primeiro projeto Growdev no Heroku -- Módulo III",
+  "main": "index.js",
+  "scripts": {
+  "start": "node .dist/index.js",
+   "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+   "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttsoares/heroku-01.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ttsoares/heroku-01/issues"
+  },
+  "homepage": "https://github.com/ttsoares/heroku-01#readme",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.6",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
