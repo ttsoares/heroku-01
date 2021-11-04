@@ -163,8 +163,15 @@ app.post('/user/:userid/transactions/', (req: Request, res: Response) => {
     return res.status(400).send(`<h1>Transção inválida</h1>`)
     res.end()
   }
+
+	if (!idExist(userID)) {
+		return res.status(400).send(`<h1>Usuário ${userID} não existe</h1>`)
+    res.end()
+	}
+
   trans++
   const RegTrans:Transaction = new Transaction(trans, title, Nvalue, type)
+
   AllUsers[userID].transaction!.push(RegTrans)
 
   res.status(200).send(`<h1>Transação para usuario ${AllUsers[userID].name} cadastrada</h1>`)
@@ -278,16 +285,17 @@ app.get('/user/:id', (req: Request, res: Response) => {
   let Positivo:number = 0
   let Negativo:number = 0
 
-  for (let trans of AllUsers[uID].transaction!) {
-      if (trans.type == "income") {
-        Positivo = Positivo + trans.value
-        console.log(`Depósito: ${trans.value}`)
-      }
-      else {
-        Negativo = Negativo + trans.value
-        console.log(`Retirada: ${trans.value}`)
-      }
-  }
+	AllUsers[uID].transaction!.forEach(trans => {
+		if (trans.type == "income") {
+			Positivo = Positivo + trans.value
+			console.log(`Depósito: ${trans.value}`)
+		}
+		else {
+			Negativo = Negativo + trans.value
+			console.log(`Retirada: ${trans.value}`)
+		}
+	})
+
   const Saldo = Positivo - Negativo
   console.log(`Saldo: ${Saldo}`)
   return  res.status(200).json(`Saldo total: ${Saldo}`)
