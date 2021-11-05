@@ -13,8 +13,8 @@
     "url": "git+https://github.com/ttsoares/heroku-01.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Thomas Soares",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/ttsoares/heroku-01/issues"
   },
