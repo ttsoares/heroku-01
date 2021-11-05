@@ -18,66 +18,66 @@ class Transaction {
 	}
 
 class User {
-  constructor(public id:number, public name:string, public cpf:string, public email:string, public age:number, public transaction: Transaction[] = []) {}
+  constructor(public id:number, public name:string, public cpf:string, public email:string, public age:number, public transaction: Transaction[]=[]) {}
   }
 
 let AllUsers:User[] = [
     {
-      "id": 0,
-      "name": "Marcio",
-      "cpf": "9211573.741-30",
-      "email": "aqui@mesmo.org",
-      "age": 22,
-      "transaction": [
+      id: 0,
+      name: "Marcio",
+      cpf: "9211573.741-30",
+      email: "aqui@mesmo.org",
+      age: 22,
+      transaction: [
         {
-          "id": 0,
-          "title": "TTT",
-          "value": 100,
-          "type": "income"
+          id: 0,
+          title: "TTT",
+          value: 100,
+          type: "income"
         },
         {
-          "id": 1,
-          "title": "WWW",
-          "value": 50,
-          "type": "outcome"
+          id: 1,
+          title: "WWW",
+          value: 50,
+          type: "outcome"
         }
       ]
     },
     {
-      "id": 1,
-      "name": "Paulo",
-      "cpf": "9214573.741-30",
-      "email": "aqui@mesmo.org",
-      "age": 33,
-      "transaction": [
+      id: 1,
+      name: "Paulo",
+      cpf: "9214573.741-30",
+      email: "aqui@mesmo.org",
+      age: 33,
+      transaction: [
         {
-          "id": 2,
-          "title": "aaa",
-          "value": 222,
-          "type": "income"
+          id: 2,
+          title: "aaa",
+          value: 222,
+          type: "income"
         }
       ]
     },
     {
-      "id": 2,
-      "name": "Fernando",
-      "cpf": "9214573.741-10",
-      "email": "aqui@mesmo.org",
-      "age": 22,
-      "transaction": []
+      id: 2,
+      name: "Fernando",
+      cpf: "9214573.741-10",
+      email: "aqui@mesmo.org",
+      age: 22,
+      transaction: []
     },
     {
-      "id": 3,
-      "name": "marcelo",
-      "cpf": "9214573.331-10",
-      "email": "aqui@mesmo.org",
-      "age": 55,
-      "transaction": [
+      id: 3,
+      name: "marcelo",
+      cpf: "9214573.331-10",
+      email: "aqui@mesmo.org",
+      age: 55,
+      transaction: [
         {
-          "id": 3,
-          "title": "aaa",
-          "value": 222,
-          "type": "income"
+          id: 3,
+          title: "aaa",
+          value: 222,
+          type: "income"
         }
       ]
     }
@@ -181,17 +181,22 @@ app.post('/user/:userid/transactions', (req: Request, res: Response) => {
 //=======MOSTRA UM USUARIO SEM AS TRANSAÇÕES
 app.get('/users/:id', (req: Request, res: Response) => {
   const userID:number = Number(req.params.id)
-  const Nuser = {...AllUsers[userID]}
-  delete Nuser.transaction
+
+	const { transaction, ...Nuser} = AllUsers[userID]
+
 	AllUsers[userID].transaction.forEach(elm => console.log(`TransID: ${elm.id}`))
   return res.status(201).json(Nuser)
 })
 
 //========MOSTRA TODOS OS USUARIOS SEM AS TRANSAÇÕES
 app.get('/users', (req: Request, res: Response) => {
-	const Newarr:User[] = []
-	AllUsers.forEach(val => Newarr.push((Object.assign({}, val))))
-  Newarr.forEach(elm => delete elm.transaction)
+
+	const Newarr:any[] = []
+	AllUsers.forEach( (elm) => {
+		const { transaction, ...User_sem_trans } = elm
+		Newarr.push(User_sem_trans)
+	})
+
 	return res.json(Newarr)
 })
 
