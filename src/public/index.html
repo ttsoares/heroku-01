@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Back-eng na nuvel</title>
+  <style>
+    body {background-color: #333;}
+    h1   {color: blue; font-size: 4rem}
+    h3   {color: green; font-size: 1rem}
+    h4   {color: pink; font-weight: bold; font-size: 2rem; margin: 0}
+    h5, h6 {color: white; font-size: 1.5rem; padding: 0;
+       line-height: 0.9; margin: 12px}
+    h6 {text-indent: 20px;}
+    li    {color: yellow; font-size: 2rem}
+    .wraper {display: flex; flex-direction: row;}
+    .trans {font-style: italic; color: lightgreen}
+    .div1, .div2 {padding: 20px; justify-content: center;}
+</style>
+</head>
+<body>
+  <div class="wraper">
+    <div class="div1">
+      <h1>Rotas Dispovíveis</h1>
+      <ul>
+        <li>delete('/user/:userid/transaction/:trasid)</li>
+        <li>delete('/user/:id')</li>
+        <li>------------------------------------------</li>
+        <li>put('/user/:userid/transaction/:trasid')</li>
+        <li>put('/user/:id')</li>
+        <li>------------------------------------------</li>
+        <li>get('/user/:id')</li>
+        <li>get('/users')</li>
+        <li>get('/users/:id')</li>
+        <li>get('/user/:userid/transaction/:transid')</li>
+        <li>-----------------------------------------</li>
+        <li>post('/user/:userid/transactions')</li>
+        <li>post('/users')</li>
+      </ul>
+    </div>
+    <div class="div2">
+      <h1>Objetos iniciais</h1>
+      <h3>
+        <h4>id: 0,</h4>
+        <h5>name: "Marcio",</h5>
+        <h5>cpf: "9211573.741-30",</h5>
+        <h5>email: "aqui@mesmo.org",</h5>
+        <h5>age: 22,</h5>
+        <h5 class="trans">transaction:</h5>
+            <h6>id: 0,</h6>
+            <h6>title: "TTT",</h6>
+            <h6>value: 100,</h6>
+            <h6>type: "income"</h6>
+            <h6>-----------</h6>
+            <h6>id: 1,</h6>
+            <h6>title: "WWW",</h6>
+            <h6>value: 50,</h6>
+            <h6>type: "outcome"</h6>
+        <h5>------------------------</h5>
+        <h4>id: 1,</h4>
+        <h5>name: "Paulo",</h5>
+        <h5>cpf: "9214573.741-30",</h5>
+        <h5>email: "aqui@mesmo.org",</h5>
+        <h5>age: 33,</h5>
+        <h5 class="trans">transaction:</h5>
+            <h6>id: 2,</h6>
+            <h6>title: "aaa",</h6>
+            <h6>value: 222,</h6>
+            <h6>type: "income"</h6>
+        <h5>---------------------------</h5>
+        <h4>id: 2,</h4>
+        <h5>name: "Fernando",</h5>
+        <h5>cpf: "9214573.741-10",</h5>
+        <h5>email: "aqui@mesmo.org",</h5>
+        <h5>age: 22,</h5>
+        <h5 class="trans">transaction: []</h5>
+        -------------------------
+        <h4>id: 3,</h4>
+        <h5>name: "marcelo",</h5>
+        <h5>cpf: "9214573.331-10",</h5>
+        <h5>email: "aqui@mesmo.org",</h5>
+        <h5>age: 55,</h5>
+        <h5 class="trans">transaction:</h5>
+            <h6>id: 3,</h6>
+            <h6>title: "aaa",</h6>
+            <h6>value: 222,</h6>
+            <h6>type: "income"</h6>
+      </h3>
+    </div>
+  </div>
+</body>
+</html>
