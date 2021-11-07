@@ -5,9 +5,17 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static('public'))
+//app.use(express.static('public'))
+app.use(express.static(__dirname + "/public"));
+
+const path = require('path')
+app.use('/public', express.static(path.join(__dirname, 'public')))
 
 app.get('/index.html', function(req, res){
+    res.sendFile('index.html', { root: __dirname + "/public" } );
+});
+
+app.get('/', function(req, res){
     res.sendFile('index.html', { root: __dirname + "/public" } );
 });
 
