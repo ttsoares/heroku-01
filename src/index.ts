@@ -6,17 +6,17 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //app.use(express.static('public'))
-app.use(express.static(__dirname + "/public"));
+//app.use(express.static(__dirname + "/public"));
 
-const path = require('path')
-app.use('/public', express.static(path.join(__dirname, 'public')))
-
-app.get('/index.html', function(req, res){
-    res.sendFile('index.html', { root: __dirname + "/public" } );
-});
+// const path = require('path')
+// app.use('/public', express.static(path.join(__dirname, 'public')))
+//
+// app.get('/index.html', function(req, res){
+//     res.sendFile('index.html', { root: __dirname + "/public" } );
+// });
 
 app.get('/', function(req, res){
-    res.sendFile('index.html', { root: __dirname + "/public" } );
+    res.send(`<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><meta content="ie=edge"http-equiv=X-UA-Compatible><title>Back-eng na nuvel</title><style>body{background-color:#333}h1{color:#00f;font-size:4rem}h3{color:green;font-size:1rem}h4{color:pink;font-weight:700;font-size:2rem;margin:0}h5,h6{color:#fff;font-size:1.5rem;padding:0;line-height:.9;margin:12px}h6{text-indent:20px}li{color:#ff0;font-size:2rem}.wraper{display:flex;flex-direction:row}.trans{font-style:italic;color:#90ee90}.div1,.div2{padding:20px;justify-content:center}</style><div class=wraper><div class=div1><h1>Rotas Dispovíveis</h1><ul><li>delete('/user/:userid/transaction/:trasid)<li>delete('/user/:id')<li>------------------------------------------<li>put('/user/:userid/transaction/:trasid')<li>put('/user/:id')<li>------------------------------------------<li>get('/user/:id')<li>get('/users')<li>get('/users/:id')<li>get('/user/:userid/transaction/:transid')<li>-----------------------------------------<li>post('/user/:userid/transactions')<li>post('/users')</ul></div><div class=div2><h1>Objetos iniciais</h1><h3><h4>id: 0,</h4><h5>name: "Marcio",</h5><h5>cpf: "9211573.741-30",</h5><h5>email: "aqui@mesmo.org",</h5><h5>age: 22,</h5><h5 class=trans>transaction:</h5><h6>id: 0,</h6><h6>title: "TTT",</h6><h6>value: 100,</h6><h6>type: "income"</h6><h6>-----------</h6><h6>id: 1,</h6><h6>title: "WWW",</h6><h6>value: 50,</h6><h6>type: "outcome"</h6><h5>------------------------</h5><h4>id: 1,</h4><h5>name: "Paulo",</h5><h5>cpf: "9214573.741-30",</h5><h5>email: "aqui@mesmo.org",</h5><h5>age: 33,</h5><h5 class=trans>transaction:</h5><h6>id: 2,</h6><h6>title: "aaa",</h6><h6>value: 222,</h6><h6>type: "income"</h6><h5>---------------------------</h5><h4>id: 2,</h4><h5>name: "Fernando",</h5><h5>cpf: "9214573.741-10",</h5><h5>email: "aqui@mesmo.org",</h5><h5>age: 22,</h5><h5 class=trans>transaction: []</h5>-------------------------<h4>id: 3,</h4><h5>name: "marcelo",</h5><h5>cpf: "9214573.331-10",</h5><h5>email: "aqui@mesmo.org",</h5><h5>age: 55,</h5><h5 class=trans>transaction:</h5><h6>id: 3,</h6><h6>title: "aaa",</h6><h6>value: 222,</h6><h6>type: "income"</h6></h3></div></div>`)
 });
 
 const port = process.env.PORT || 7777
