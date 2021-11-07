@@ -6,7 +6,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', function(req, res){
-    res.sendfile('index.html', { root: __dirname + "/public" } );
+    res.sendFile('index.html', { root: __dirname + "/public" } );
 });
 
 const port = process.env.PORT || 7777
