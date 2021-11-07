@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', function(req, res){
+app.get('/index.html', function(req, res){
     res.sendFile('index.html', { root: __dirname + "/public" } );
 });
 
