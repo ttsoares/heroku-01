@@ -1,5 +1,5 @@
 {
-  "name": "heroku-01",
+  "name": "heroku-BE",
   "version": "1.0.0",
   "description": "Primeiro projeto Growdev no Heroku -- Módulo III",
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ttsoares/heroku-01.git"
+    "url": "git+https://github.com/ttsoares/heroku-BE.git"
   },
   "keywords": [],
   "author": "Thomas Soares",
   "license": "GPLv3",
   "bugs": {
-    "url": "https://github.com/ttsoares/heroku-01/issues"
+    "url": "https://github.com/ttsoares/heroku-BE/issues"
   },
-  "homepage": "https://github.com/ttsoares/heroku-01#readme",
+  "homepage": "https://github.com/ttsoares/heroku-BE#readme",
   "devDependencies": {
     "typescript": "^4.4.4"
   },
