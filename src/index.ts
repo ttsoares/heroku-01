@@ -382,7 +382,9 @@ app.delete('/user/:userid/transaction/:transid', (req: Request, res: Response) =
 
 	const Tindice = indi_id(Uindice,transID)
 
+	const data:object = {nome:AllUsers[Uindice].name, trans: AllUsers[Uindice].transaction[Tindice]}
+
   const removida = AllUsers[Uindice].transaction.splice(Tindice,1)
 
-  return  res.status(200).json(removida)
+	res.status(200),res.render('del_trans', {data: data});
 })
